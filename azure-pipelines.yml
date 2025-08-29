@@ -1,0 +1,16 @@
+trigger:
+- master
+
+pool:
+  name: Default     # Name of the agent pool (usually "Default")
+  demands:
+  - agent.name -equals myagent   # Replace with the actual agent name
+
+steps:
+- script: echo "Hello from a self-hosted agent!"
+  displayName: "Run a simple script"
+
+- script: |
+    echo "Updating packages..."
+    sudo apt-get update
+  displayName: "Update system (Linux example)"
